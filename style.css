@@ -1,0 +1,63 @@
+.cart {
+    padding: 10px;
+    border-radius: 0px 10px 0px 0px;
+}
+
+.mr-3 {
+    width: 20% !important;
+}
+
+.media {
+    padding: 5px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cashier {
+    width: 250px;
+}
+
+.cart-item {
+    height: 330px;
+    overflow-y: scroll;
+}
+
+.menu-item {
+    height: 465px;
+    overflow-y: scroll;
+}
+
+.detail {
+    color: white;
+    border-radius: 0px 0px 10px 0px;
+}
+
+.sorot:hover {
+    box-shadow: 1px 1px 6px 0px #00704b75;
+}
+
+.bungkus {
+    width: 100%;
+    height: 70%;
+}
+
+.buttonpay {
+    margin-left: 70%;
+    margin-top: -12%;
+    padding-bottom: 2px;
+}
+
+#button-addon2:hover{
+    box-shadow: 5px 5px 10px grey;
+}

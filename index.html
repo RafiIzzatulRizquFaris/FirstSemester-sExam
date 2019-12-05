@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Starbhak Cafe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-light bg-primary">
+        <span class="navbar-brand mb-0 mr h1 font-weight-normal text-white">Starbhak Beverage</span>
+    </nav>
+
+    <div class="d-flex container-fluid pl-0">
+        <div class="col-lg-4 pl-0" id="sidebar-wrapper">
+            <div style="border-radius: 10px" class="d-flex flex-row bd-highlight mt-2 mb-2">
+                <div class="p-2 bd-highlight">
+                    <div class="btn-group">
+                        <button type="button" class="btn-lg cashier text-white disabled bg-primary" aria-haspopup="true"
+                            aria-expanded="false">
+                            POS 1
+                        </button>
+                    </div>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <div class="btn-group text-center">
+                        <button style="padding-right: 55px;" type="button"
+                            class="btn-lg bg-primary text-white dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span>Dine In</span>
+                        </button>
+                        <div class="dropdown-menu" id="serveList">
+                            <a class="dropdown-item active" href="#">Dine In</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Take Away</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Delivery</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="background: white;" class="cart ml-2 pb-3 rounded">
+                <div class="text-center mb-3">
+                    <h2 style="font-size: 1.4rem" class="text-primary">CART</h2>
+                </div>
+                <!-- Item Keranjang -->
+                <div id="orderHolder" class="cart-item">
+                    <!-- Place holder cart -->
+                </div>
+            </div>
+            <div class="detail bg-primary ml-2 rounded shadow-lg">
+                <table border="0" cellpadding=10>
+                    <tr>
+                        <td>Sub Total : Rp <span id="subTotal" class="subTotal">0</span></td>
+                        <td>Tax : Rp <span id="tax">0</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Total : Rp <span id='total'>0</span></td>
+                    </tr>
+                </table>
+                <div class="text-center buttonpay">
+                    <div class="p-1 bd-highlight mt-2">
+                        <div class="btn-group text-center">
+                            <button style="width: 120px;" type="button" id="payment" class="btn-lg cashier btn-success"
+                                aria-haspopup="true" aria-expanded="false" data-toggle="modal"
+                                data-target="#exampleModalScrollable">
+                                Payment
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card bungkus mt-3 p-3 rounded-lg">
+            <div class="row border-bottom border-primary">
+                <div class="col-sm-12 mb-3 input-group text-center text-primary">
+                    <div class="input-group-prepend border-primary rounded-right">
+                        <span class="input-group-text border-right-0 border-primary bg-white font-weight-bold">Q</span>
+                    </div>
+                    <input type="text" class="form-control rounded-right border-primary" placeholder="Search Product"
+                        aria-label="Search Product" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-white" type="button" id="button-addon2">Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item mt-3">
+                <div>
+                    <div id="menuHolder" class="row p-2 pl-4 pr-4">
+                        <!-- Place Holder -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Invoice</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="invoiceHolder" class="modal-body">
+                    <!-- Holder -->
+                </div>
+                <div style="display:inline-block; text-align:end" class="modal-footer">
+                    <div class="d-flex">
+                        <div class="col-sm" style="text-align: start;">
+                            <h6 class="mr-0">POS 1</h6>
+                            <h6 class="mr-0">Serving : <span id="serveWith"></span></h6>
+                        </div>
+                        <div class="col-sm" style="text-align: end;">
+                            <h6 class="mr-0">Subtotal : Rp <span id="MSubTotal"></span></h6>
+                            <h6 class="mr-0">Tax : Rp <span id="MTax"></span></h6>
+                            <h6 class="mr-0">Total : Rp <span id="MTotal"></span></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="number" min="1" placeholder="Masukkan Uang" id="inputPayment">
+                    <button type="button" id="btnPay" class="btn btn-success" data-toggle="modal"
+                        data-target="#exampleModal" data-dismiss="modal">Cash Payment</button>
+                    <button type="button" id="btnCancel" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Change : Rp <span id="outputChange"></span></h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="detailModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="detailClose" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
