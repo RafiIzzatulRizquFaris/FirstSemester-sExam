@@ -1,2 +1,2 @@
 # FirstSemester-sExam
-Shoutout to @fauzanmaulana and @godofsleepy for the reference
+Shoutout to [Maul](https://github.com/fauzanmaulana) and [Rifat](https://github.com/godofsleepy) for the reference
